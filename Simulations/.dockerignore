@@ -1,0 +1,16 @@
+.idea
+.ipynb_checkpoints
+__pycache__
+Playground.ipynb
+nohup.out
+.pytest_cache
+test/.pytest_cache
+dask-worker-space/*
+*.ipynb
+*.csv
+./cachedir
+/cachedir/
+/test/
+/.test/
+/Simulations/*.csv
+/Old/
