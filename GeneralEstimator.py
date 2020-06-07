@@ -96,7 +96,7 @@ class EstimatorSpectrum(EstimatorAbstract):
         """
         print('Estimating noise level...')
         if self.transformed_measure:
-            self.delta = np.sqrt(np.divide(np.sum(np.square(1 - self.observations)), self.sample_size ** 2))
+            self.delta = np.sqrt(np.divide(2*np.sum(1 - np.square(self.observations)), self.sample_size ** 2))
         else:
             kernel: Callable = self.kernel
             lower = self.lower
