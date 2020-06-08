@@ -8,4 +8,4 @@ To replicate the results do:
 3. execute the bash script `./run.sh`
 4. the results will be available (by default) in location `/var/lib/docker/volumes/output/_data`
 
-Docker image is available under this [link](https://hub.docker.com/r/grzegorzmika/morozov-in-poisson-problems).
+Built Docker image is available under this [link](https://hub.docker.com/r/grzegorzmika/morozov-in-poisson-problems).
