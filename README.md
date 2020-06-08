@@ -2,7 +2,7 @@
 
 Simulation code accompanying the article G.Mika, Z.Szkutnik, "Towards adaptivity via a new discrepancy principle for Poisson inverse problems".
 
-To replicate the results do:
+To replicate the results a Docker is required. It can be installed following the instructions under this [link](https://docs.docker.com/get-docker/), then the commands from `run.sh` have to be performed. In particular, for Linux-based systems, please follow the steps described below.
 1. navigate to the directory where the repository is cloned
 2. run `chmod +x run.sh`
 3. execute the bash script `./run.sh`
