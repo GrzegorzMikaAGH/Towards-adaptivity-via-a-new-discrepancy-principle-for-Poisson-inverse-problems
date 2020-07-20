@@ -1,0 +1,16 @@
+python3 Beta_landweber.py
+python3 Beta_tikhonov.py
+python3 Beta_tikhonov_1.py
+python3 Beta_tsvd.py
+python3 Bimodal_landweber.py
+python3 Bimodal_tikhonov.py
+python3 Bimodal_tikhonov_1.py
+python3 Bimodal_tsvd.py
+python3 SMLA_landweber.py
+python3 SMLA_tikhonov.py
+python3 SMLA_tikhonov_1.py
+python3 SMLA_tsvd.py
+python3 SMLB_landweber.py
+python3 SMLB_tikhonov.py
+python3 SMLB_tikhonov_1.py
+python3 SMLB_tsvd.py

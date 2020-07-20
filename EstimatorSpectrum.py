@@ -368,16 +368,16 @@ class Tikhonov(EstimatorSpectrum):
                          np.multiply(lam, np.power(lam + alpha, order)))
 
     @timer
-    def estimate(self) -> None:
+    def estimate(self, min_alpha=0.0001) -> None:
         """
-        Implementation of iterated Tikhonv algorithm for inverse problem with stopping rule based on Morozov discrepancy principle.
+        Implementation of iterated Tikhonov algorithm for inverse problem with stopping rule based on Morozov discrepancy principle.
         """
         self.__singular_functions()
         self.__singular_values()
         self.__find_fourier_coeffs()
         self.estimate_delta()
 
-        for alpha in np.flip(np.linspace(0, 3, 1000)):
+        for alpha in np.flip(np.linspace(min_alpha, 3, 1000)):
             residual = np.sqrt(np.sum(np.multiply(np.square(
                 np.subtract(np.multiply(self.__regularization(np.square(self.sigmas), alpha, self.order),
                                         np.square(self.sigmas)),
