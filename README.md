@@ -2,10 +2,8 @@
 
 Simulation code accompanying the article G.Mika, Z.Szkutnik, "Towards adaptivity via a new discrepancy principle for Poisson inverse problems".
 
-To replicate the results a Docker is required. It can be installed following the instructions under this [link](https://docs.docker.com/get-docker/), then the commands from `run.sh` have to be performed. In particular, for Linux-based systems, please follow the steps described below.
-1. navigate to the directory where the repository is cloned
-2. run `chmod +x run.sh`
-3. execute the bash script `./run.sh`
-4. the results will be available (by default) in location `/var/lib/docker/volumes/output/_data`
+The replication of simulation results is possible via a provided set of codes. For each of considered methods (*Landweber*, *1-* and *2-times iterated Tikhonov* and *TSVD*) and for each presented function (*Beta*, *Bimodal*, *SMLA*, *SMLB*) there is a separate code file with the following naming convention: `FunctionName_MethodName.py`. The list of requirements is provided in file `requirements.txt`. To execute the code a minimal required version of Python is 3.7.
 
-Built Docker image is available under this [link](https://hub.docker.com/r/grzegorzmika/morozov-in-poisson-problems).
+Each code file produces a set of output files in a format of *csv* files with following naming convention: `MethodName_fun_FunctionName_size_SampleSize_tau_ParamterTau.csv`, where `SampleSize` and `ParamterTau` are customizable parameters and can be edited inside a respective code files. By default, they are set to the values used in the article. 
+
+For Linux-based systems, a shortcut is provided in a format of `shell` file (`run_simulations.sh`). The code expects to be executed inside a repository folder and in a proper python environment with the required packages installed.
