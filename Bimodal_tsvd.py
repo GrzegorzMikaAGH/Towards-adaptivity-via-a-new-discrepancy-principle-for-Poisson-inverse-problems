@@ -18,7 +18,7 @@ if __name__ == '__main__':
     for s in size:
         for i, fun in enumerate(functions):
             for j, tau in enumerate(taus):
-                generator = LSW(pdf=fun, sample_size=s, seed=914)
+                generator = LSW(pdf=fun, sample_size=s, seed=913)
                 results = {'selected_param': [], 'oracle_param': [], 'oracle_loss': [], 'loss': [], 'solution': [],
                            'oracle_solution': []}
                 for rep in range(replications):

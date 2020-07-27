@@ -371,13 +371,14 @@ class Tikhonov(EstimatorSpectrum):
     def estimate(self, min_alpha=0.0001) -> None:
         """
         Implementation of iterated Tikhonov algorithm for inverse problem with stopping rule based on Morozov discrepancy principle.
+        :param min_alpha: cut-off from zero for regularization parameter (default 0.0001)
         """
         self.__singular_functions()
         self.__singular_values()
         self.__find_fourier_coeffs()
         self.estimate_delta()
 
-        for alpha in np.flip(np.linspace(min_alpha, 3, 1000)):
+        for alpha in np.flip(np.linspace(min_alpha, 0.1, 1000)):
             residual = np.sqrt(np.sum(np.multiply(np.square(
                 np.subtract(np.multiply(self.__regularization(np.square(self.sigmas), alpha, self.order),
                                         np.square(self.sigmas)),
@@ -404,10 +405,11 @@ class Tikhonov(EstimatorSpectrum):
         pass
 
     @timer
-    def oracle(self, true: Callable, patience: int = 1) -> None:
+    def oracle(self, true: Callable, patience: int = 3, min_alpha=0.0001) -> None:
         """
         Find the oracle regularization parameter which minimizes the L2 norm and knowing the true solution.
         :param true: True solution.
+        :param min_alpha: cut-off from zero for regularization parameter (default 0.0001)
         :param patience: Number of consecutive iterations to observe the loss behavior after the minimum was found to
         prevent to stack in local minimum (default: 3).
         """
@@ -420,7 +422,7 @@ class Tikhonov(EstimatorSpectrum):
         def residual(solution):
             return lambda x: np.square(true(x) - solution(x))
 
-        for alpha in np.flip(np.linspace(0, 3, 1000)):
+        for alpha in np.flip(np.linspace(min_alpha, 0.1, 1000)):
             parameters.append(alpha)
 
             if self.transformed_measure:
